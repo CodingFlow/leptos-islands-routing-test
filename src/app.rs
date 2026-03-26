@@ -1,6 +1,6 @@
 use std::sync::OnceLock;
 
-use leptos::{prelude::*, reactive::signal};
+use leptos::prelude::*;
 use leptos_meta::{provide_meta_context, MetaTags, Stylesheet, Title};
 use leptos_router::{
     components::{Route, Router, Routes},
@@ -59,9 +59,12 @@ fn HomePage() -> impl IntoView {
 
 #[island]
 fn Sum() -> impl IntoView {
-    let sum = move || {
-        let number_one = (GlobalState::get().first_number)();
-        let number_two = (GlobalState::get().second_number)();
+    let number_one_signal = GlobalState::get().first_number;
+    let number_two_signal = GlobalState::get().second_number;
+
+    let sum = LocalResource::new(move || async move {
+        let number_one = number_one_signal();
+        let number_two = number_two_signal();
 
         let value_one = match number_one.is_enabled {
             true => number_one.value,
@@ -76,30 +79,20 @@ fn Sum() -> impl IntoView {
         let sum = value_one + value_two;
 
         sum
-    };
-
-    let (local_sum, set_local_sum) = signal::<i32>(0);
-
-    #[cfg(feature = "hydrate")] {
-        Effect::new(move |_| {
-            let sum_value = sum();
-            leptos::logging::log!("sum is: {sum_value}");
-
-            set_local_sum(sum_value);
-        });
-    }
+    });
 
     view! {
         <div>
-            The sum is: {local_sum}
+            The sum is: {move || sum.get().unwrap_or(0)}
         </div>
     }
 }
 
 #[island]
 fn ChangeValueOne() -> impl IntoView {
+    let number_one_signal = GlobalState::get().first_number;
+
     let on_input = move |_| {
-        let number_one_signal = GlobalState::get().first_number;
         let number_one = number_one_signal();
         let is_enabled = !number_one.is_enabled;
 
@@ -109,11 +102,13 @@ fn ChangeValueOne() -> impl IntoView {
         })
     };
 
+    let on_toggle = move || number_one_signal().is_enabled;
+
     view! {
         <div class="p-8">
             <label>
                 Change value one:
-                <input on:input=on_input type="checkbox" class="m-2" />
+                <input on:input=on_input prop:checked=on_toggle type="checkbox" class="m-2" />
             </label>
         </div>
     }
@@ -121,8 +116,9 @@ fn ChangeValueOne() -> impl IntoView {
 
 #[island]
 fn ChangeValueTwo() -> impl IntoView {
+    let number_two_signal = GlobalState::get().second_number;
+
     let on_input = move |_| {
-        let number_two_signal = GlobalState::get().second_number;
         let number_two = number_two_signal();
         let is_enabled = !number_two.is_enabled;
 
@@ -132,11 +128,13 @@ fn ChangeValueTwo() -> impl IntoView {
         })
     };
 
+    let on_toggle = move || number_two_signal().is_enabled;
+
     view! {
         <div class="p-8">
             <label>
                 Change value two:
-                <input on:input=on_input type="checkbox" class="m-2" />
+                <input on:input=on_input prop:checked=on_toggle type="checkbox" class="m-2" />
             </label>
         </div>
     }
@@ -147,6 +145,38 @@ fn OtherPage() -> impl IntoView {
     view! {
         <h1 class="p-6">"The other page"</h1>
         <a href="/" class="p-6">go back to home</a>
+        <OtherIsland />
+    }
+}
+
+#[island]
+fn OtherIsland() -> impl IntoView {
+    let first_number = GlobalState::get().first_number;
+    let second_number = GlobalState::get().second_number;
+    let number = RwSignal::new(0);
+    let number_enabled = RwSignal::new(false);
+
+    let on_click = move |_| {
+        number(second_number().value);
+        number_enabled(second_number().is_enabled);
+    };
+
+    view! {
+        <div>
+            <div>
+                First number from homepage: {first_number().value}
+            </div>
+            <div>
+                First number enabled: {first_number().is_enabled}
+            </div>
+            <div class="pt-3">
+                Second number from homepage shown on click: {number}
+            </div>
+            <div>
+                Second number enabled shown on click: {number_enabled}
+            </div>
+            <button on:click=on_click class="mt-3 p-4 border">Show second number</button>
+        </div>
     }
 }
 
@@ -156,23 +186,30 @@ pub struct Number {
     pub value: i32,
 }
 
-#[derive(Clone, Debug)] // ArcRwSignal is Clone, not Copy
+#[derive(Copy, Clone, Debug)]
 pub struct GlobalState {
-    pub first_number: ArcRwSignal<Number>,
-    pub second_number: ArcRwSignal<Number>,
+    pub first_number: RwSignal<Number>,
+    pub second_number: RwSignal<Number>,
 }
 
 impl GlobalState {
     pub fn get() -> Self {
         static STATE: OnceLock<GlobalState> = OnceLock::new();
-        
-        // This works on both Server and Client. 
-        // ArcRwSignal does not require a reactive Owner to exist.
-        STATE.get_or_init(|| {
-            Self {
-                first_number: ArcRwSignal::new(Number { is_enabled: false, value: 1 }),
-                second_number: ArcRwSignal::new(Number { is_enabled: false, value: 2 }),
-            }
-        }).clone()
+
+        #[cfg(feature = "ssr")] {
+            return Self {
+                first_number: RwSignal::new(Number { is_enabled: false, value: 1 }),
+                second_number: RwSignal::new(Number { is_enabled: false, value: 2 }),
+            };
+        }
+
+        #[cfg(feature = "hydrate")] {
+            *STATE.get_or_init(|| {
+                Self {
+                    first_number: RwSignal::new(Number { is_enabled: false, value: 1 }),
+                    second_number: RwSignal::new(Number { is_enabled: false, value: 2 }),
+                }
+            })
+        }
     }
 }
