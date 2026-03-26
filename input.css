@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+/* Tell Tailwind where to look for your Rust/Leptos classes */
+@source "../src/**/*.rs";
+
+/* Allow styling to pass through island elements e.g. flexbox */
+leptos-island { display: contents; }
+
+leptos-children { display: contents; }

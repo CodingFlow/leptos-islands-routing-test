@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.17.0/.schema/devbox.schema.json",
+  "packages": {
+    "rustup": "1.28",
+    "tailwindcss_4": "4.1.18",
+    "cargo-leptos": "0.3.5",
+    "wasm-bindgen-cli_0_2_114": "latest",
+    "binaryen": "125"
+  },
+  "shell": {
+    "init_hook": [
+      "echo started devbox environment"
+    ],
+    "scripts": {
+      "test": [
+        "echo \"Error: no test specified\" && exit 1"
+      ]
+    }
+  }
+}

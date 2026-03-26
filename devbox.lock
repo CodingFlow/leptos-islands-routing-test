@@ -1,0 +1,250 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "binaryen@125": {
+      "last_modified": "2026-03-21T07:29:51Z",
+      "resolved": "github:NixOS/nixpkgs/09061f748ee21f68a089cd5d91ec1859cd93d0be#binaryen",
+      "source": "devbox-search",
+      "version": "125",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/9sxjzfdb0dvb8y5axmx697n8f8mxif0x-binaryen-125",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/9sxjzfdb0dvb8y5axmx697n8f8mxif0x-binaryen-125"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/llk1g5xyh05aydl2jzg19s972f43j8zb-binaryen-125",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/llk1g5xyh05aydl2jzg19s972f43j8zb-binaryen-125"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/pyk5b2b34ibr3ig2mg5cxhafrs6yxvc4-binaryen-125",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/pyk5b2b34ibr3ig2mg5cxhafrs6yxvc4-binaryen-125"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/0zpbl9z9bfzhpy7d5fgkfzxhw1dm5p61-binaryen-125",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/0zpbl9z9bfzhpy7d5fgkfzxhw1dm5p61-binaryen-125"
+        }
+      }
+    },
+    "cargo-leptos@0.3.5": {
+      "last_modified": "2026-03-21T07:29:51Z",
+      "resolved": "github:NixOS/nixpkgs/09061f748ee21f68a089cd5d91ec1859cd93d0be#cargo-leptos",
+      "source": "devbox-search",
+      "version": "0.3.5",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/wfksflarfjg3fg48mcxqq2b0pn66dim5-cargo-leptos-0.3.5",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/wfksflarfjg3fg48mcxqq2b0pn66dim5-cargo-leptos-0.3.5"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/qid48p0kp579lwfnmcq5bpb9nhj9ljm4-cargo-leptos-0.3.5",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/qid48p0kp579lwfnmcq5bpb9nhj9ljm4-cargo-leptos-0.3.5"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/im1fyg9ii4fm865azskfa2wzbfqfp38i-cargo-leptos-0.3.5",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/im1fyg9ii4fm865azskfa2wzbfqfp38i-cargo-leptos-0.3.5"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/28jvsp4a5qb0l5r5bjrznd0r6s8ab2lr-cargo-leptos-0.3.5",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/28jvsp4a5qb0l5r5bjrznd0r6s8ab2lr-cargo-leptos-0.3.5"
+        }
+      }
+    },
+    "github:NixOS/nixpkgs/nixpkgs-unstable": {
+      "last_modified": "2026-03-23T13:48:00Z",
+      "resolved": "github:NixOS/nixpkgs/fdc7b8f7b30fdbedec91b71ed82f36e1637483ed?lastModified=1774273680&narHash=sha256-a%2B%2BtZ1RQsDb1I0NHrFwdGuRlR5TORvCEUksM459wKUA%3D"
+    },
+    "rustup@1.28": {
+      "last_modified": "2026-03-21T07:29:51Z",
+      "plugin_version": "0.0.1",
+      "resolved": "github:NixOS/nixpkgs/09061f748ee21f68a089cd5d91ec1859cd93d0be#rustup",
+      "source": "devbox-search",
+      "version": "1.28.2",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/z151hcfq4djwzmxxfdiy5cih1nly05aq-rustup-1.28.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/z151hcfq4djwzmxxfdiy5cih1nly05aq-rustup-1.28.2"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/l1bgj6d6p3n9868n91vhb8fvzj3l0n69-rustup-1.28.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/l1bgj6d6p3n9868n91vhb8fvzj3l0n69-rustup-1.28.2"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/3rczx3p8ayxam5xp1h1jpq3cwwrzpak4-rustup-1.28.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/3rczx3p8ayxam5xp1h1jpq3cwwrzpak4-rustup-1.28.2"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/8bwaqs52z4830qljdx989b86lqjq5ah3-rustup-1.28.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/8bwaqs52z4830qljdx989b86lqjq5ah3-rustup-1.28.2"
+        }
+      }
+    },
+    "tailwindcss_4@4.1.18": {
+      "last_modified": "2026-01-23T17:20:52Z",
+      "resolved": "github:NixOS/nixpkgs/a1bab9e494f5f4939442a57a58d0449a109593fe#tailwindcss_4",
+      "source": "devbox-search",
+      "version": "4.1.18",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/lmgjcsk5sc4x799f248g4cd8f5j6b86a-tailwindcss_4-4.1.18",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/lmgjcsk5sc4x799f248g4cd8f5j6b86a-tailwindcss_4-4.1.18"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/3vb9w1mj555l0d0l0090d1h2h78p8x38-tailwindcss_4-4.1.18",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/3vb9w1mj555l0d0l0090d1h2h78p8x38-tailwindcss_4-4.1.18"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/p8sc0c40nil2xga0z7qm7rk7njjl3pw8-tailwindcss_4-4.1.18",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/p8sc0c40nil2xga0z7qm7rk7njjl3pw8-tailwindcss_4-4.1.18"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/jj9jxh1ijpdd2ll0d1ngag6yq613r6yk-tailwindcss_4-4.1.18",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/jj9jxh1ijpdd2ll0d1ngag6yq613r6yk-tailwindcss_4-4.1.18"
+        }
+      }
+    },
+    "wasm-bindgen-cli_0_2_114@latest": {
+      "last_modified": "2026-03-21T07:29:51Z",
+      "resolved": "github:NixOS/nixpkgs/09061f748ee21f68a089cd5d91ec1859cd93d0be#wasm-bindgen-cli_0_2_114",
+      "source": "devbox-search",
+      "version": "0.2.114",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/ym1m9dkdmh2yql4kzi57x18jp8q8s1mq-wasm-bindgen-cli-0.2.114",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/ym1m9dkdmh2yql4kzi57x18jp8q8s1mq-wasm-bindgen-cli-0.2.114"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/s64n18rf1fryv81bjr0dl4xjccbmq09d-wasm-bindgen-cli-0.2.114",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/s64n18rf1fryv81bjr0dl4xjccbmq09d-wasm-bindgen-cli-0.2.114"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/rl2w2zj928ml3cinp2xxvb4v06p5fwwb-wasm-bindgen-cli-0.2.114",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/rl2w2zj928ml3cinp2xxvb4v06p5fwwb-wasm-bindgen-cli-0.2.114"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/s1kqazplh5kfb7r1gp53ggm4lffndjb7-wasm-bindgen-cli-0.2.114",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/s1kqazplh5kfb7r1gp53ggm4lffndjb7-wasm-bindgen-cli-0.2.114"
+        }
+      }
+    }
+  }
+}
